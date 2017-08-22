@@ -3,32 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Category;
-use App\Models\SubCategory; 
-use App\Models\Product;
-use Faker\Factory as Faker;
-class HomeController extends Controller
+
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function byCategory($categoryName)
     {
-
-        $Category = Category::orderby('c_name', 'asc')->get();
-        foreach($Category as $category){
-            $allCategory[$category->c_name] = SubCategory::where('sc_c_id', $category->c_id)->get();
-        }
-
-        $data = [
-            'allCategory' => $allCategory,
-            'Products' => Product::all()
-        ];
-
-        return view('frontend.index', $data);
+        dd($categoryName);
     }
 
     /**
@@ -36,9 +21,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function bySubCategory($subCategoryId)
     {
-        //
+        dd($subCategoryId);
     }
 
     /**

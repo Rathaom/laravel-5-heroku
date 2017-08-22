@@ -12,6 +12,7 @@
 */
 
 // Route::get('/', ['uses' => 'ProductController@index', 'as' => 'index']);
+@include('categories/CategoryRoute.php');
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'index']);
 
 // Route::get('/', function () {
