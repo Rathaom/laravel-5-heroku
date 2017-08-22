@@ -16,6 +16,7 @@ class CreateCategoryTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->string('c_id');
             $table->string('c_name');
+            $table->string('cover_photo');
             $table->rememberToken();
             $table->timestamps();
         });
