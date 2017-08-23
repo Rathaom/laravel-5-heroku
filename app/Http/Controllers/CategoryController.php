@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use App\Models\Category;
+use App\Models\SubCategory; 
+use App\Models\Product;
 class CategoryController extends Controller
 {
     /**
@@ -13,7 +16,11 @@ class CategoryController extends Controller
      */
     public function byCategory($categoryName)
     {
-        dd($categoryName);
+        $products = Product::join('sub_categories', 'p_sub_c_id', '=', 'sub_categories.sc_id')
+                        ->join('categories', 'sub_categories.sc_c_id', '=', 'categories.c_id')
+                        ->where('categories.c_name', $categoryName)
+                        ->get();
+        dd($products);
     }
 
     /**
@@ -23,7 +30,8 @@ class CategoryController extends Controller
      */
     public function bySubCategory($subCategoryId)
     {
-        dd($subCategoryId);
+        $products = Product::where('p_sub_c_id', $subCategoryId)->get();
+        dd($products);
     }
 
     /**

@@ -31,22 +31,24 @@ class DatabaseSeeder extends Seeder
     		$c->cover_photo = $faker->imageUrl($width = 640, $height = 480, 'technics', true);
     		$c->save();
 
-    		foreach(range(1, 10) as $index){
+    		foreach(range(1, 5) as $index){
     			$sc = new SubCategory();
     			$sc->sc_id = '004' . $faker->md5;
     			$sc->sc_name = $faker->name;
     			$sc->sc_c_id = $c->c_id;
     			$sc->save();
+                foreach(range(1, 5) as $index){
 
-    			$p = new Product();
-    			$p->p_id = '002' . $faker->md5;
-    			$p->title = $faker->name;
-    			$p->content = $faker->realText($maxNbChars = 500, $indexSize = 2);
-                $p->photo = $faker->imageUrl($width = 640, $height = 480, 'technics', true);
-    			$p->price = $faker->numberBetween($min = 100, $max = 1000);
-    			$p->p_user_id = $user->user_id;
-    			$p->p_sub_c_id = $sc->sc_id;
-    			$p->save();
+        			$p = new Product();
+        			$p->p_id = '002' . $faker->md5;
+        			$p->title = $faker->name;
+        			$p->content = $faker->realText($maxNbChars = 500, $indexSize = 2);
+                    $p->photo = $faker->imageUrl($width = 640, $height = 480, 'technics', true);
+        			$p->price = $faker->numberBetween($min = 100, $max = 1000);
+        			$p->p_user_id = $user->user_id;
+        			$p->p_sub_c_id = $sc->sc_id;
+        			$p->save();
+                }
 
     		}
 

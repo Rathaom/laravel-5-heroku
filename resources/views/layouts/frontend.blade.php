@@ -53,6 +53,7 @@
 							<div class="h_nav">
 								<h4>popular</h4>
 								<ul>
+									<li><a href="/category/{{$CategoryName}}">All</a></li>
 									@foreach($category as $subCategory)
 									<li><a href="/sub-category/{{$subCategory->sc_id}}">{{$subCategory->sc_name}}</a></li>
 									@endforeach

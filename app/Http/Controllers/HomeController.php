@@ -22,7 +22,7 @@ class HomeController extends Controller
         foreach($Category as $category){
             $allCategory[$category->c_name] = SubCategory::where('sc_c_id', $category->c_id)->get();
         }
-
+        
         $data = [
             'allCategory' => $allCategory,
             'Products' => Product::all()
