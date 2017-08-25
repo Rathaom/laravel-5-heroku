@@ -14,7 +14,7 @@
 <div class="header-top">
 	<div class="wrap"> 
 		<div class="logo">
-			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+			<a href="index.html"><img src="/images/logo.png" alt=""/></a>
 		</div>
 		<div class="cssmenu">
 			<ul>
@@ -66,7 +66,7 @@
 						<div class="col1"></div>
 						<div class="col1"></div>
 						<div class="col1"></div>
-						<img src="images/nav_img.jpg" alt=""/>
+						<img src="/images/nav_img.jpg" alt=""/>
 					</div>
 				</div>
 				@endif
@@ -84,17 +84,17 @@
 			<div class="wrap">
 				<div class="col_1_of_footer-top span_1_of_footer-top">
 					<ul class="f_list">
-						<li><img src="images/f_icon.png" alt=""/><span class="delivery">Free delivery on all orders over £100*</span></li>
+						<li><img src="/images/f_icon.png" alt=""/><span class="delivery">Free delivery on all orders over £100*</span></li>
 					</ul>
 				</div>
 				<div class="col_1_of_footer-top span_1_of_footer-top">
 					<ul class="f_list">
-						<li><img src="images/f_icon1.png" alt=""/><span class="delivery">Customer Service :<span class="orange"> (800) 000-2587 (freephone)</span></span></li>
+						<li><img src="/images/f_icon1.png" alt=""/><span class="delivery">Customer Service :<span class="orange"> (800) 000-2587 (freephone)</span></span></li>
 					</ul>
 				</div>
 				<div class="col_1_of_footer-top span_1_of_footer-top">
 					<ul class="f_list">
-						<li><img src="images/f_icon2.png" alt=""/><span class="delivery">Fast delivery & free returns</span></li>
+						<li><img src="/images/f_icon2.png" alt=""/><span class="delivery">Fast delivery & free returns</span></li>
 					</ul>
 				</div>
 				<div class="clear"></div>
@@ -105,17 +105,7 @@
 				<div class="section group">
 					<div class="col_1_of_middle span_1_of_middle">
 						<dl id="sample" class="dropdown">
-							<dt><a href="#"><span>Please Select a Country</span></a></dt>
-							<dd>
-								<ul>
-									<li><a href="#">Australia<img class="flag" src="images/as.png" alt="" /><span class="value">AS</span></a></li>
-									<li><a href="#">Sri Lanka<img class="flag" src="images/srl.png" alt="" /><span class="value">SL</span></a></li>
-									<li><a href="#">Newziland<img class="flag" src="images/nz.png" alt="" /><span class="value">NZ</span></a></li>
-									<li><a href="#">Pakistan<img class="flag" src="images/pk.png" alt="" /><span class="value">Pk</span></a></li>
-									<li><a href="#">United Kingdom<img class="flag" src="images/uk.png" alt="" /><span class="value">UK</span></a></li>
-									<li><a href="#">United States<img class="flag" src="images/us.png" alt="" /><span class="value">US</span></a></li>
-								</ul>
-							</dd>
+							
 						</dl>
 					</div>
 					<div class="col_1_of_middle span_1_of_middle">

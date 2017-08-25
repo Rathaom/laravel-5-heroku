@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\SubCategory; 
 use App\Models\Product;
+use App\Models\Photo;
 use Faker\Factory as Faker;
 class DatabaseSeeder extends Seeder
 {
@@ -31,13 +32,13 @@ class DatabaseSeeder extends Seeder
     		$c->cover_photo = $faker->imageUrl($width = 640, $height = 480, 'technics', true);
     		$c->save();
 
-    		foreach(range(1, 5) as $index){
+    		foreach(range(1, 7) as $index){
     			$sc = new SubCategory();
     			$sc->sc_id = '004' . $faker->md5;
     			$sc->sc_name = $faker->name;
     			$sc->sc_c_id = $c->c_id;
     			$sc->save();
-                foreach(range(1, 5) as $index){
+                foreach(range(1, 20) as $index){
 
         			$p = new Product();
         			$p->p_id = '002' . $faker->md5;
@@ -48,6 +49,14 @@ class DatabaseSeeder extends Seeder
         			$p->p_user_id = $user->user_id;
         			$p->p_sub_c_id = $sc->sc_id;
         			$p->save();
+                    foreach(range(1, 5) as $index) {
+                        $photo = new Photo();
+                        $photo->photo_id = '005' . $faker->md5;
+                        $photo->photo_name = $faker->name;
+                        $photo->photo_path = $faker->imageUrl($width = 640, $height = 480, 'technics', true);
+                        $photo->photo_p_id = $p->p_id;
+                        $photo->save();
+                    }
                 }
 
     		}

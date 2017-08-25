@@ -17,7 +17,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $Category = Category::orderby('c_name', 'asc')->get();
         foreach($Category as $category){
             $allCategory[$category->c_name] = SubCategory::where('sc_c_id', $category->c_id)->get();

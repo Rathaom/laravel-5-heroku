@@ -12,8 +12,11 @@
 */
 
 // Route::get('/', ['uses' => 'ProductController@index', 'as' => 'index']);
-@include('categories/CategoryRoute.php');
-Route::get('/', ['uses' => 'HomeController@index', 'as' => 'index']);
+Route::group(['middleware' => ['web']], function(){
+	@include('categories/CategoryRoute.php');
+	@include('products/ProductRoute.php');
+	Route::get('/', ['uses' => 'HomeController@index', 'as' => 'index']);
+});
 
 // Route::get('/', function () {
 //     return view('welcome');

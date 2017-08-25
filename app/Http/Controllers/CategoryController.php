@@ -19,8 +19,20 @@ class CategoryController extends Controller
         $products = Product::join('sub_categories', 'p_sub_c_id', '=', 'sub_categories.sc_id')
                         ->join('categories', 'sub_categories.sc_c_id', '=', 'categories.c_id')
                         ->where('categories.c_name', $categoryName)
-                        ->get();
-        dd($products);
+                        ->paginate(9);
+
+        $Category = Category::orderby('c_name', 'asc')->get();
+        foreach($Category as $category){
+            $allCategory[$category->c_name] = SubCategory::where('sc_c_id', $category->c_id)->get();
+        }
+        
+        $data = [
+            'allCategory' => $allCategory,
+            'Products' => $products
+        ];
+
+
+        return view('frontend.category', $data);
     }
 
     /**
@@ -30,8 +42,19 @@ class CategoryController extends Controller
      */
     public function bySubCategory($subCategoryId)
     {
-        $products = Product::where('p_sub_c_id', $subCategoryId)->get();
-        dd($products);
+        $products = Product::where('p_sub_c_id', $subCategoryId)->paginate(9);
+        $Category = Category::orderby('c_name', 'asc')->get();
+        foreach($Category as $category){
+            $allCategory[$category->c_name] = SubCategory::where('sc_c_id', $category->c_id)->get();
+        }
+        
+        $data = [
+            'allCategory' => $allCategory,
+            'Products' => $products
+        ];
+
+
+        return view('frontend.category', $data);
     }
 
     /**

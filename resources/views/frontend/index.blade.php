@@ -138,7 +138,7 @@
 				<!-- <div class="box1"> -->
 				@foreach ($Products->slice(0, 9) as $product)
 					<div class="col_1_of_3 span_1_of_3">
-						<a href="/sub-category/{{$product->p_id}}">
+						<a href="/product-detail/{{$product->p_id}}">
 							<div class="view view-fifth">
 								<div class="top_box">
 									<h3 class="m_1">{{$product->title}}</h3>

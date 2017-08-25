@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\SubCategory; 
 use App\Models\Product;
+use App\Models\Photo;
 use Faker\Factory as Faker;
 class ProductController extends Controller
 {
@@ -15,10 +16,27 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function detail($productId)
     {
+        $product = Product::where('p_id', $productId)->limit(1)->get();
+        $photos = Photo::where('photo_p_id', $productId)->get();
 
-        dd(Product::all());
+        $Category = Category::orderby('c_name', 'asc')->get();
+        foreach($Category as $category){
+            $allCategory[$category->c_name] = SubCategory::where('sc_c_id', $category->c_id)->get();
+        }
+        
+        $data = [
+            'allCategory' => $allCategory,
+            'mainProduct' => $product,
+            'products' => Product::limit(6)->get(),
+            'photos' => $photos
+        ];
+
+
+        return view('frontend.detail', $data);
+
+        // dd(Product::all());
     }
 
     /**
