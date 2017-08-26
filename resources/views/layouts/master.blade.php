@@ -10,6 +10,7 @@
 	{!!Html::style('libraries/css/megamenu.css')!!}
 	{!!Html::style('libraries/css/style.css')!!}
 	{!!Html::style('libraries/css/bootstrap.min.css')!!}
+	{!!Html::style('libraries/css/flexslider.css')!!}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -33,6 +34,7 @@
 	{!!Html::script('libraries/js/jquery.etalage.min.js')!!}
 	{!!Html::script('libraries/js/jquery.flexisel.js')!!}
 	{!!Html::script('libraries/js/jquery.jscrollpane.min.js')!!}
+	{!!Html::script('libraries/js/jquery.flexslider.js')!!}
 
 	@yield('script')
 </body>

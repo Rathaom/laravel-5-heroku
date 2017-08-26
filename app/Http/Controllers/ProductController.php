@@ -29,7 +29,7 @@ class ProductController extends Controller
         $data = [
             'allCategory' => $allCategory,
             'mainProduct' => $product,
-            'products' => Product::limit(6)->get(),
+            'products' => Product::where('p_sub_c_id', $product[0]->p_sub_c_id)->limit(6)->get(),
             'photos' => $photos
         ];
 

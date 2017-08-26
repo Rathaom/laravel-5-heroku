@@ -1,96 +1,114 @@
 @extends('layouts.frontend')
-
+<br>
 @section('frontend.content')
-<!-- <style type="text/css">
-	.span_1_of_a1{
-		width: 39.2%!important;
-	}
-	.span_2_of_a1 {
-	    width: 57.1%;
-	}
-</style> -->
-<div class="single">
-	<div class="wrap">
-		<div class="cont span_2_of_3" style="width: 100%!important">
-			<div class="labout span_1_of_a1">
-				<!-- start product_slider -->
-				<ul id="etalage">
-					@foreach($photos as $photo)
-					<li>
-						<img class="etalage_thumb_image" src="{{$photo->photo_path}}" />
-						<img class="etalage_source_image" src="{{$photo->photo_path}}" />
-					</li>
-					@endforeach
-				</ul>
+	{!!Html::style('css/style-detail.css')!!}
 
-
-				<!-- end product_slider -->
-			</div>
-			<div class="cont1 span_2_of_a1">
-				<h3 class="m_3">Lorem ipsum dolor sit amet</h3>
-
-				<div class="price_single">
-					<span class="reducedfrom">$66.00</span>
-					<span class="actual">$12.00</span><a href="#">click for offer</a>
-				</div>
-				<ul class="options">
-					<h4 class="m_9">Select a Size</h4>
-					<li><a href="#">6</a></li>
-					<li><a href="#">7</a></li>
-					<li><a href="#">8</a></li>
-					<li><a href="#">9</a></li>
-					<div class="clear"></div>
-				</ul>
-				<div class="btn_form">
-					<form>
-						<input type="submit" value="buy now" title="">
-					</form>
-				</div>
-				<ul class="add-to-links">
-					<li><img src="/images/wish.png" alt=""/><a href="#">Add to wishlist</a></li>
-				</ul>
-				<p class="m_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-				<div class="social_single">	
-					<ul>	
-						<li class="fb"><a href="#"><span> </span></a></li>
-						<li class="tw"><a href="#"><span> </span></a></li>
-						<li class="g_plus"><a href="#"><span> </span></a></li>
-						<li class="rss"><a href="#"><span> </span></a></li>		
-					</ul>
-				</div>
-			</div>
-			<div class="clear"></div>
-
-
-			<ul id="flexiselDemo3">
-				@foreach($products as $product)
-				<li>
-					<img src="{{$product->photo}}" />
-					<div class="grid-flex">
-						<a href="#">Bloch</a>
-						<p>Rs 850</p>
-					</div>
-				</li>
-				@endforeach
-			</ul>
-			<div class="toogle">
-				<h3 class="m_3">Product Details</h3>
-				<p class="m_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
-			</div>					
-			<div class="toogle">
-				<h3 class="m_3">Product Reviews</h3>
-				<p class="m_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
-			</div>
-		</div>
-		<div class="clear"></div>
-	</div>
+        <div class="showcase-grid">
+            <div class="container">
+                <div class="col-md-8 showcase">
+                    <div class="flexslider">
+                      <ul class="slides">
+                      	@foreach($photos->slice(0, 4) as $photo)
+                        <li data-thumb="{{$photo->photo_path}}">
+                            <div class="thumb-image"> <img src="{{$photo->photo_path}}" class="img-responsive"> </div>
+                        </li>
+                        @endforeach
+                 </ul>
+                 <div class="clearfix"></div>
+             </div>
+         </div>
+         <div class="col-md-4 showcase">
+            <div class="showcase-rt-top">
+                <div class="pull-left shoe-name">
+                    <h3>{{$mainProduct[0]->title}}</h3>
+                    <!-- <p>Men's running shoes</p> -->
+                    <h4>&#36;{{$mainProduct[0]->price}}</h4>
+                </div>
+                <div class="pull-left rating-stars">
+                    <ul>
+                        <li><a href="#" class="active"><span class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
+                        <li><a href="#" class="active"><span class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
+                        <li><a href="#" class="active"><span class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-star star-stn" aria-hidden="true"></span></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <hr class="featurette-divider">
+            <div class="shocase-rt-bot">
+                <div class="float-qty-chart">
+                    <ul>
+                        <li class="qty">
+                            <h3>Size Chart</h3>
+                            <select class="form-control siz-chrt">
+                              <option>6 US</option>
+                              <option>7 US</option>
+                              <option>8 US</option>
+                              <option>9 US</option>
+                              <option>10 US</option>
+                              <option>11 US</option>
+                          </select>
+                      </li>
+                      <li class="qty">
+                        <h4>QTY</h4>
+                        <select class="form-control qnty-chrt">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                      </select>
+                  </li>
+              </ul>
+              <div class="clearfix"></div>
+          </div>
+          <ul>
+            <li class="ad-2-crt simpleCart_shelfItem">
+                <a class="btn item_add" href="#" role="button">Add To Cart</a>
+                <a class="btn" href="#" role="button">Buy Now</a>
+            </li>
+        </ul>
+    </div>
+    <div class="showcase-last">
+        <h3>product details</h3>
+        <ul>
+            {{$mainProduct[0]->content}}
+        </ul>
+    </div>
 </div>
+<div class="clearfix"></div>
 
+
+<br>
+<h3 class="you-might">Products You May Like</h3>
+<ul id="flexiselDemo3">
+	@foreach($products as $product)
+	<li>
+		<img src="{{$product->photo}}" onclick="window.location.href = '/product-detail/{{$product->p_id}}'"/>
+		<div class="grid-flex">
+			<a href="/product-detail/{{$product->p_id}}">{{$product->title}}</a>
+			<p>${{$product->price}}</p>
+		</div>
+	</li>
+	@endforeach
+</ul>
+</div>
+</div>
 @endsection
 
 @section('frontend.script')
-
+<script>
+    // Can also be used with $(document).ready()
+    $(window).load(function() {
+    	$('.flexslider').flexslider({
+    		animation: "slide",
+    		controlNav: "thumbnails"
+    	});
+    });
+</script>
 <script type="text/javascript">
 	$(window).load(function() {
 		$("#flexiselDemo1").flexisel();
@@ -135,76 +153,6 @@
 			}
 		});
 
-	});
-</script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(".dropdown img.flag").addClass("flagvisibility");
-
-		$(".dropdown dt a").click(function() {
-			$(".dropdown dd ul").toggle();
-		});
-
-		$(".dropdown dd ul li a").click(function() {
-			var text = $(this).html();
-			$(".dropdown dt a span").html(text);
-			$(".dropdown dd ul").hide();
-			$("#result").html("Selected value is: " + getSelectedValue("sample"));
-		});
-
-		function getSelectedValue(id) {
-			return $("#" + id).find("dt a span.value").html();
-		}
-
-		$(document).bind('click', function(e) {
-			var $clicked = $(e.target);
-			if (! $clicked.parents().hasClass("dropdown"))
-				$(".dropdown dd ul").hide();
-		});
-
-
-		$("#flagSwitcher").click(function() {
-			$(".dropdown img.flag").toggleClass("flagvisibility");
-		});
-	});
-</script>
-
-<script type="text/javascript" id="sourcecode">
-	$(function()
-	{
-		$('.scroll-pane').jScrollPane();
-	});
-</script>
-<script>
-	jQuery(document).ready(function($){
-
-		$('#etalage').etalage({
-			thumb_image_width: 300, //480
-			thumb_image_height: 400, //360
-
-			show_hint: true,
-			click_callback: function(image_anchor, instance_id){
-				alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
-			}
-		});
-		// This is for the dropdown list example:
-		$('.dropdownlist').change(function(){
-			etalage_show( $(this).find('option:selected').attr('class') );
-		});
-
-	});
-</script>
-<script type="text/javascript">
-	$(document).ready(function() {
-
-		var defaults = {
-		  			containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear' 
-				};
-		$().UItoTop({ easingType: 'easeOutQuart' });
-		
 	});
 </script>
 @endsection

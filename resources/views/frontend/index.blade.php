@@ -1,13 +1,22 @@
 @extends('layouts.frontend')
 
 @section('frontend.content')
-
+<style type="text/css">
+	@media (max-width: 640px) 
+	{
+	    .wmuSlider.example1
+	    {
+	        display: none;
+	    }
+	}
+</style>
 		<div class="wmuSlider example1" style="height: 560px;">
 		<div class="wmuSliderWrapper">
+			@foreach ($Products->slice(0, 5) as $product)
 			<article style="position: relative; width: 100%; opacity: 1;"> 
 				<div class="banner-wrap">
 					<div class="slider-left">
-						<img src="images/banner1.jpg" alt=""/> 
+						<img src="{{$product->photo}}" alt=""/> 
 					</div>
 					<div class="slider-right">
 						<h1>Classic</h1>
@@ -18,90 +27,8 @@
 					<div class="clear"></div>
 				</div>
 			</article>
-			<article style="position: absolute; width: 100%; opacity: 0;"> 
-				<div class="banner-wrap">
-					<div class="slider-left">
-						<img src="images/banner2.jpg" alt=""/> 
-					</div>
-					<div class="slider-right">
-						<h1>Classic</h1>
-						<h2>White</h2>
-						<p>Lorem ipsum dolor sit amet</p>
-						<div class="btn"><a href="shop.html">Shop Now</a></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</article>
-			<article style="position: absolute; width: 100%; opacity: 0;">
-				<div class="banner-wrap">
-					<div class="slider-left">
-						<img src="images/banner1.jpg" alt=""/> 
-					</div>
-					<div class="slider-right">
-						<h1>Classic</h1>
-						<h2>White</h2>
-						<p>Lorem ipsum dolor sit amet</p>
-						<div class="btn"><a href="shop.html">Shop Now</a></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</article>
-			<article style="position: absolute; width: 100%; opacity: 0;">
-				<div class="banner-wrap">
-					<div class="slider-left">
-						<img src="images/banner2.jpg" alt=""/> 
-					</div>
-					<div class="slider-right">
-						<h1>Classic</h1>
-						<h2>White</h2>
-						<p>Lorem ipsum dolor sit amet</p>
-						<div class="btn"><a href="shop.html">Shop Now</a></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</article>
-			<article style="position: absolute; width: 100%; opacity: 0;"> 
-				<div class="banner-wrap">
-					<div class="slider-left">
-						<img src="images/banner1.jpg" alt=""/> 
-					</div>
-					<div class="slider-right">
-						<h1>Classic</h1>
-						<h2>White</h2>
-						<p>Lorem ipsum dolor sit amet</p>
-						<div class="btn"><a href="shop.html">Shop Now</a></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</article>
+			@endforeach
 		</div>
-		<a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
-		<ul class="wmuSliderPagination">
-			<li><a href="#" class="">0</a></li>
-			<li><a href="#" class="">1</a></li>
-			<li><a href="#" class="wmuActive">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-		</ul>
-		<a class="wmuSliderPrev">Previous</a>
-		<a class="wmuSliderNext">Next</a>
-		<ul class="wmuSliderPagination">
-			<li>
-				<a href="#" class="wmuActive">0</a>
-			</li>
-			<li>
-				<a href="#" class="">1</a>
-			</li>
-			<li>
-				<a href="#" class="">2</a>
-			</li>
-			<li>
-				<a href="#" class="">3</a>
-			</li>
-			<li>
-				<a href="#" class="">4</a>
-			</li>
-		</ul>
 	</div>
 	<div class="main">
 		<div class="wrap">

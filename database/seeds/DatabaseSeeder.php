@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         			$p->p_user_id = $user->user_id;
         			$p->p_sub_c_id = $sc->sc_id;
         			$p->save();
-                    foreach(range(1, 5) as $index) {
+                    foreach(range(1, 4) as $index) {
                         $photo = new Photo();
                         $photo->photo_id = '005' . $faker->md5;
                         $photo->photo_name = $faker->name;
